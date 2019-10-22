@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -11,7 +10,6 @@ func TestAdd(t *testing.T) {
 	if actual != expected {
 		t.Errorf("expected 2 and got %v", actual)
 	}
-	fmt.Println("Addition: OK")
 }
 
 func TestRemove(t *testing.T) {
@@ -20,5 +18,4 @@ func TestRemove(t *testing.T) {
 	if actual != expected {
 		t.Errorf("expected 2 and got %v", actual)
 	}
-	fmt.Println("Remove: OK")
 }
