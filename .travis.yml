@@ -12,5 +12,4 @@ branches:
     - develop
 
 script:
-  - go mod
   - go test
