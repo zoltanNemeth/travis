@@ -12,33 +12,31 @@ branches:
     - develop
 
 jobs:
-  include:
-    - setupEnvironment:
-      script:
-        - wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
-        - unzip chromedriver_linux64.zip -d /home/travis/
-        - export webdriverPath=/home/travis/chromedriver
-        - export PATH=$PATH:/home/travis/
-        - sudo apt-get install -y libgconf-2-4
-        - echo $PATH
-        - cd /home/travis/
-        - ls
-    - test:
-      script:
-        - go test
-        - cd /home/travis/
-        - ls
-    - deploy:
-      provider: script
-      script:
-        - echo 'deploy stage is not implemented yet'
-        - cd /home/travis/
-        - ls
+  - test:
+    script:
+      - go test
+      - cd /home/travis/
+      - ls
+  - deploy:
+    provider: script
+    script:
+      - echo 'deploy stage is not implemented yet'
+      - cd /home/travis/
+      - ls
 
 stages:
-  - name: setupEnvironment
   - name: test
   - name: deploy
+
+before_script:
+  - wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip -d /home/travis/
+  - export webdriverPath=/home/travis/chromedriver
+  - export PATH=$PATH:/home/travis/
+  - sudo apt-get install -y libgconf-2-4
+  - echo $PATH
+  - cd /home/travis/
+  - ls
 
 notifications:
   email: false
