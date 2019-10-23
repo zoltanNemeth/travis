@@ -27,10 +27,10 @@ jobs:
         - cd ..
         - go test -run TestAdd
     - script:
-      name: unitTests2
       - go test -run TestRemove
       - cd /home/travis
       - ls
+      name: unitTests2
     - stage: deploy
       provider: script
       script:
