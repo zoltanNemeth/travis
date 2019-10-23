@@ -16,6 +16,7 @@ jobs:
     - stage: test
       name: Unit test with chromedriver downloading
       script:
+        - go test -run TestAdd
         - wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
         - unzip chromedriver_linux64.zip -d /home/travis/
         - export webdriverPath=/home/travis/chromedriver
@@ -24,7 +25,6 @@ jobs:
         - echo $PATH
         - cd $GOPATH
         - ls
-        - go test -run TestAdd
     - script:
       - go test -run TestRemove
       - cd /home/travis
