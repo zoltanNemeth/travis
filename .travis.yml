@@ -24,7 +24,8 @@ jobs:
         - echo $PATH
         - cd /home/travis/
         - ls
-        - cd ..
+        - cd
+        - ls
         - go test -run TestAdd
     - script:
       - go test -run TestRemove
