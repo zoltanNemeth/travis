@@ -14,7 +14,7 @@ branches:
 jobs:
   include:
     - stage: test
-      name: With space
+      name: Unit test with chromedriver downloading
       script:
         - wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
         - unzip chromedriver_linux64.zip -d /home/travis/
@@ -22,16 +22,14 @@ jobs:
         - export PATH=$PATH:/home/travis/
         - sudo apt-get install -y libgconf-2-4
         - echo $PATH
-        - cd /home/travis/
-        - ls
-        - cd
+        - cd $GOPATH
         - ls
         - go test -run TestAdd
     - script:
       - go test -run TestRemove
       - cd /home/travis
       - ls
-      name: unitTests2
+      name: Another unit test
     - stage: deploy
       provider: script
       script:
