@@ -14,6 +14,7 @@ branches:
 jobs:
   include:
     - stage: test
+      name: unit tests1
       script:
         - wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
         - unzip chromedriver_linux64.zip -d /home/travis/
@@ -24,7 +25,8 @@ jobs:
         - cd /home/travis/
         - ls
         - go test -run TestAdd
-      script:
+    - script:
+        name: unit tests2
         - go test -run TestRemove
         - cd /home/travis
         - ls
