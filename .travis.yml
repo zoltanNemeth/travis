@@ -24,11 +24,16 @@ jobs:
         - cd /home/travis/
         - ls
     - test:
-      script: go test
+      script:
+        - go test
+        - cd /home/travis/
+        - ls
     - deploy:
       provider: script
       script:
         - echo 'deploy stage is not implemented yet'
+        - cd /home/travis/
+        - ls
 
 stages:
   - name: setupEnvironment
