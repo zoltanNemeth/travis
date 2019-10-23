@@ -11,11 +11,6 @@ branches:
   only:
     - develop
 
-stages:
-  - setupEnvironment
-  - test
-  - deploy
-
 jobs:
   include:
     - setupEnvironment:
@@ -26,7 +21,7 @@ jobs:
         - export PATH=$PATH:/home/travis/
         - sudo apt-get install -y libgconf-2-4
         - echo $PATH
-        - cd $webdriverPath
+        - cd /home/travis/
         - ls
     - test:
       script: go test
@@ -34,6 +29,11 @@ jobs:
       provider: script
       script:
         - echo 'deploy stage is not implemented yet'
+
+stages:
+  - name: setupEnvironment
+  - name: test
+  - name: deploy
 
 notifications:
   email: false
