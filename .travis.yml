@@ -13,7 +13,7 @@ branches:
 
 jobs:
   include:
-    - stage test:
+    - stage: test
       script:
         - wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
         - unzip chromedriver_linux64.zip -d /home/travis/
@@ -28,7 +28,7 @@ jobs:
         - go test -run TestRemove
         - cd /home/travis
         - ls
-    - stage deploy:
+    - stage: deploy
       provider: script
       script:
         - echo 'deploy stage is not implemented yet'
